@@ -1,0 +1,49 @@
+Day Date     Event      Prac  Purpose
+
+Mon 19 Sep   Lecture          programs made of equations; running them
+             Lab        1     evaluation game
+Thu 22 Sep   Lecture          standard types & classes (H3)
+Fri 23 Sep   Lecture          defining functions (H4)
+Thu 29 Sep   Deadline   1     4pm
+Thu 29 Sep   Tut        2     FOP unveil
+Fri 30 Sep   Lecture          list comprehensions (H5)
+Mon  3 Oct   Lecture          recursive functions (H6)
+             Lab        2
+Thu  6 Oct   Tut        2     FOP firefight
+Fri  7 Oct   Lecture          higher-order functions (H7)
+Mon 10 Oct   Lecture          declaring types and classes (H8)
+             Lab        2
+Thu 13 Oct   Tut        3     HOP unveil
+Fri 14 Oct   Lecture          functors (hints of parametricity)
+Mon 17 Oct   Lecture          recursion schemes
+             Deadline   2     2pm
+             Lab-Test   2
+Thu 20 Oct   Tut        2     FOP autopsy
+Fri 21 Oct   Lecture          building pure evaluators
+Mon 24 Oct   Lecture          applicatives and monads (H12)
+             Lab        3
+Thu 27 Oct   Tut        3     HOP firefight
+Fri 28 Oct   Lecture          monads we like
+Mon 31 Oct   Lecture          monadic parsing (H13)
+             Lab        3
+Thu  3 Nov   Tut        4     GHOUL unveil
+Fri  4 Nov   Lecture          monoids/foldable (H14)
+Mon  7 Nov   Lecture          traversable
+             Deadline   3     2pm
+             Lab-Test   3     HOP test
+Thu 10 Nov   Tut        3     HOP autopsy
+Fri 11 Nov   Lecture          zippability
+Mon 14 Nov   Lecture          free monads
+             Lab        4
+Thu 17 Nov   Tut        4     GHOUL firefight
+Fri 18 Nov   Lecture          the zipper
+Mon 21 Nov   Lecture          abstract machine (H17)
+             Lab
+Thu 24 Nov   Tut        4     GHOUL firefight
+Fri 25 Nov   Lecture          infinite data and processes (H15)
+Mon 28 Nov   Lecture          programming interaction
+             Deadline   4     2pm
+             Lab-Test   4     GHOUL test
+Thu  1 Dec   Tut        4     GHOUL autopsy
+Fri  2 Dec   Lecture          a look at Agda (CS410 propaganda)
+
