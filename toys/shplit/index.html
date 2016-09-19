@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>SHPLIT</title>
+</head>
+
+<body>
+<h1>SHPLIT</h1>
+
+<p>SHPLIT is the Strathclyde Haskell Pattern LIsting Tool. It makes
+use of type information to figure out how to split a pattern variable
+into its possible constructor forms. It's at a rather experimental
+stage, just now, so caveat emptor. This directory is also a darcs repo.</p>
+
+<p>The main <tt>shplit</tt> executable is a transducer, taking a .hs
+file (sorry, no .lhs yet) from stdin and splatting a modified version
+of the same to stdout. The associated lump of emacs lisp, if suitably
+pasted into your .emacs, or whatever, should enable you to process the
+buffer with <tt>M-x shplit-buffer</tt>, or attack the variable at
+point with <tt>M-x shplit-this</tt> (bound to <tt>C-c C-c</tt>).</p>
+
+<p>SHPLIT knows about a few standard datatypes, and the datatypes
+declared in the input. A future version might be kind enough to chase
+modules. SHPLIT can't handle records or GADTs. SHPLIT works only on
+top-level prefix functions with an explicit (Hindley-Milner) type signature.
+It's for beginners, just now.</p>
+
+<p>To indicate that you want to shplit a pattern variable, just bung
+<tt>{-?-}</tt> in the source code after it. Like this
+<pre>
+  foo :: [x] -> [x]
+  foo xs{-?-} =
+</pre>
+Note that the <tt>=</tt> is needed as a clue that it's a program line,
+but a right-hand side is not compulsory (and will be crudely
+copied). You should get
+<pre>
+  foo :: [x] -> [x]
+  foo [] =
+  foo (x : xs) =
+</pre>
+back. SHPLIT tries to be slightly cunning with names, and is happy to
+do more than one shplit at a time.
+<pre>
+  goo :: [x] -> [x] -> [x]
+  goo xs{-?-} ys{-?-} =
+</pre>
+yields
+<pre>
+  goo :: [x] -> [x] -> [x]
+  goo [] [] =
+  goo [] (y : ys) =
+  goo (x : xs) [] =
+  goo (x : xs) (y : ys) =
+</pre>
+</p>
+
+<p>There's plenty of room for improvement. It only took me a day to
+knock it together. But it's fun to play with.</p>
+
+<h2>Setting up your datatype</h2>
+
+<p>If you just write any old Haskell 98 datatype, SHPLIT will make up
+a vaguely sensible naming scheme, but you can roll your own, by
+annotating your datatype declaration. Here's what I used for lists.
+<pre>
+  data {-xs-}[] x = [] | {-x-}x : {-xs-}[x]
+</pre>
+The annotation on the type head is a crude string pattern. All but the
+first character match one character of the variable being split, and
+the first character matches any remaining prefix. So matching
+<tt>xs</tt> against a pattern variable <tt>yss</tt> would bind
+<tt>x</tt> to <tt>ys</tt> and <tt>s</tt> to itself. If the pattern
+variable is too short, the overhanging characters match themselves, so
+matching <tt>xs</tt> against <tt>l</tt> would bind <tt>s</tt> to
+<tt>l</tt> and <tt>x</tt> to itself. The resulting substitutions are
+then applied to the name annotations which accompany each constructor
+argument. So if the pattern variable is <tt>yss</tt>, it splits as
+<tt>[]</tt> or <tt>(ys : yss)</tt>.
+</p>
+
+<hr>
+<address></address>
+<!-- hhmts start --> Last modified: Thu Jan 19 16:13:04 GMT 2012 <!-- hhmts end -->
+</body> </html>
