@@ -1,0 +1,306 @@
+GHCi, version 7.10.3: http://www.haskell.org/ghc/  :? for help
+Prelude> :l Lec03
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> myVal
+
+<interactive>:3:1:
+    No instance for (Show MyType) arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> myVal
+Bar (Bar Foo)
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> baz Foo
+Bar (Bar Foo)
+*Lec03> baz MyVal
+
+<interactive>:8:5:
+    Not in scope: data constructor ‘MyVal’
+    Perhaps you meant variable ‘myVal’ (line 17)
+*Lec03> baz myVal
+Bar (Bar (Bar (Bar Foo)))
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> :t not0
+not0 :: Bool -> Bool
+*Lec03> not0 False
+True
+*Lec03> :r
+Ok, modules loaded: Lec03.
+*Lec03> gcd' 5 5
+
+<interactive>:14:1:
+    Not in scope: ‘gcd'’
+    Perhaps you meant ‘gcd’ (imported from Prelude)
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> gcd' 5 5
+5
+*Lec03> gc' 5 10
+
+<interactive>:17:1:
+    Not in scope: ‘gc'’
+    Perhaps you meant one of these:
+      ‘gcd’ (imported from Prelude), ‘gcd'’ (line 39)
+*Lec03> gcd' 5 10
+*** Exception: Lec03.hs:39:1-21: Non-exhaustive patterns in function gcd'
+
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> gcd' 5 10
+5
+*Lec03> gcd' 36 42
+6
+*Lec03> gcd' 77 34
+1
+*Lec03> otherwise
+True
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> not1 (5 == 5)
+False
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:55:10::r
+    Found hole ‘_’ with type: Bool
+    Relevant bindings include
+      x :: Bool (bound at Lec03.hs:55:6)
+      not2 :: Bool -> Bool (bound at Lec03.hs:55:1)
+    In the expression: _
+    In an equation for ‘not2’: not2 x = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:55:13:
+    Found hole ‘_’ with type: Bool
+    Relevant bindings include
+      not2 :: Bool -> Bool (bound at Lec03.hs:55:1)
+    In the expression: _
+    In an equation for ‘not2’: not2 True = _
+
+Lec03.hs:56:14:
+    Found hole ‘_’ with type: Bool
+    Relevant bindings include
+      not2 :: Bool -> Bool (bound at Lec03.hs:55:1)
+    In the expression: _
+    In an equation for ‘not2’: not2 False = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> not2 (2 + 2 == 5)
+True
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> not2 False
+True
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:55:1: Warning:
+    Pattern match(es) are overlapped
+    In an equation for ‘not2’: not2 True = ...
+Ok, modules loaded: Lec03.
+*Lec03> not2 True
+True
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> :info Maybe
+data Maybe a = Nothing | Just a 	-- Defined in ‘GHC.Base’
+instance Eq a => Eq (Maybe a) -- Defined in ‘GHC.Base’
+instance Monad Maybe -- Defined in ‘GHC.Base’
+instance Functor Maybe -- Defined in ‘GHC.Base’
+instance Ord a => Ord (Maybe a) -- Defined in ‘GHC.Base’
+instance Read a => Read (Maybe a) -- Defined in ‘GHC.Read’
+instance Show a => Show (Maybe a) -- Defined in ‘GHC.Show’
+instance Applicative Maybe -- Defined in ‘GHC.Base’
+instance Foldable Maybe -- Defined in ‘Data.Foldable’
+instance Traversable Maybe -- Defined in ‘Data.Traversable’
+instance Monoid a => Monoid (Maybe a) -- Defined in ‘GHC.Base’
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:61:18:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      x :: Maybe a (bound at Lec03.hs:61:14)
+      f :: Maybe (a -> b) (bound at Lec03.hs:61:12)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply f x = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:61:24:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      x :: Maybe a (bound at Lec03.hs:61:20)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply Nothing x = _
+
+Lec03.hs:62:25:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      x :: Maybe a (bound at Lec03.hs:62:21)
+      g :: a -> b (bound at Lec03.hs:62:18)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply (Just g) x = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:62:25:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      x :: Maybe a (bound at Lec03.hs:62:21)
+      g :: a -> b (bound at Lec03.hs:62:18)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply (Just g) x = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:62:31:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      g :: a -> b (bound at Lec03.hs:62:18)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply (Just g) Nothing = _
+
+Lec03.hs:63:32:
+    Found hole ‘_’ with type: Maybe b
+    Where: ‘b’ is a rigid type variable bound by
+               the type signature for
+                 maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+               at Lec03.hs:60:15
+    Relevant bindings include
+      y :: a (bound at Lec03.hs:63:27)
+      g :: a -> b (bound at Lec03.hs:63:18)
+      maybeApply :: Maybe (a -> b) -> Maybe a -> Maybe b
+        (bound at Lec03.hs:61:1)
+    In the expression: _
+    In an equation for ‘maybeApply’: maybeApply (Just g) (Just y) = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> :info []
+data [] a = [] | a : [a] 	-- Defined in ‘GHC.Types’
+instance Eq a => Eq [a] -- Defined in ‘GHC.Classes’
+instance Monad [] -- Defined in ‘GHC.Base’
+instance Functor [] -- Defined in ‘GHC.Base’
+instance Ord a => Ord [a] -- Defined in ‘GHC.Classes’
+instance Read a => Read [a] -- Defined in ‘GHC.Read’
+instance Show a => Show [a] -- Defined in ‘GHC.Show’
+instance Applicative [] -- Defined in ‘GHC.Base’
+instance Foldable [] -- Defined in ‘Data.Foldable’
+instance Traversable [] -- Defined in ‘Data.Traversable’
+instance Monoid [a] -- Defined in ‘GHC.Base’
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> append [1,2,3] [4,5,6]
+[1,2,3,4,5,6]
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> rev [1,2,3]
+[3,2,1]
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:87:28:
+    Found hole ‘_’ with type: Maybe [a]
+    Where: ‘a’ is a rigid type variable bound by
+               the type signature for sawPrefixOff :: [a] -> [a] -> Maybe [a]
+               at Lec03.hs:84:17
+    Relevant bindings include
+      ys :: [a] (bound at Lec03.hs:87:22)
+      y :: a (bound at Lec03.hs:87:18)
+      sawPrefixOff :: [a] -> [a] -> Maybe [a] (bound at Lec03.hs:85:1)
+    In the expression: _
+    In an equation for ‘sawPrefixOff’: sawPrefixOff [] (y : ys) = _
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:87:29:
+    Couldn't match expected type ‘Maybe [a]’ with actual type ‘[a]’
+    Relevant bindings include
+      ys :: [a] (bound at Lec03.hs:87:22)
+      y :: a (bound at Lec03.hs:87:18)
+      sawPrefixOff :: [a] -> [a] -> Maybe [a] (bound at Lec03.hs:85:1)
+    In the expression: (y : ys)
+    In an equation for ‘sawPrefixOff’:
+        sawPrefixOff [] (y : ys) = (y : ys)
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+
+Lec03.hs:88:37:
+    No instance fo:r (Eq a) arising from a use of ‘==’
+    Possible fix:
+      add (Eq a) to the context of
+        the type signature for sawPrefixOff :: [a] -> [a] -> Maybe [a]
+    In the expression: x == y
+    In a stmt of a pattern guard for
+                   an equation for ‘sawPrefixOff’:
+      x == y
+    In an equation for ‘sawPrefixOff’:
+        sawPrefixOff (x : pre) (y : ys)
+          | x == y = sawPrefixOff pre ys
+          | otherwise = Nothing
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> :r
+[1 of 1] Compiling Lec03            ( Lec03.hs, interpreted )
+Ok, modules loaded: Lec03.
+*Lec03> 
