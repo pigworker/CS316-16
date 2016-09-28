@@ -1,16 +1,16 @@
-Day Date     Event      Prac  Purpose
+Day Date     Event      Prac  Purpose                                    Who?                       Away!
 
-Mon 19 Sep   Lecture          programs made of equations; running them
-             Lab        1     evaluation game
-Thu 22 Sep   Lecture          standard types & classes (H3)
-Fri 23 Sep   Lecture          defining functions (H4)
+Mon 19 Sep   Lecture          programs made of equations; running them   C&F
+             Lab        1     evaluation game                            C&F&S
+Thu 22 Sep   Lecture          standard types & classes (H3)              C&F
+Fri 23 Sep   Lecture          defining functions (H4)                    C&F
 Thu 29 Sep   Deadline   1     4pm
-Thu 29 Sep   Tut        2     FOP unveil
-Fri 30 Sep   Lecture          list comprehensions (H5)
-Mon  3 Oct   Lecture          recursive functions (H6)
+Thu 29 Sep   Tut        2     FOP unveil                                 F(&C)
+Fri 30 Sep   Lecture          list comprehensions (H5)                   C&J
+Mon  3 Oct   Lecture          recursive functions (H6)                   C&B                        F
              Lab        2
 Thu  6 Oct   Tut        2     FOP firefight
-Fri  7 Oct   Lecture          higher-order functions (H7)
+Fri  7 Oct   Lecture          higher-order functions (H7)                B&J
 Mon 10 Oct   Lecture          declaring types and classes (H8)
              Lab        2
 Thu 13 Oct   Tut        3     HOP unveil
