@@ -9,12 +9,12 @@ Thu 29 Sep   Tut        2     FOP unveil                                 F(&C)
 Fri 30 Sep   Lecture          list comprehensions (H5)                   C&J
 Mon  3 Oct   Lecture          recursive functions (H6)                   C&B                        F
              Lab        2
-Thu  6 Oct   Tut        2     FOP firefight
+Thu  6 Oct   Tut        2     FOP firefight                                                         C
 Fri  7 Oct   Lecture          higher-order functions (H7)                B&J
-Mon 10 Oct   Lecture          declaring types and classes (H8)
-             Lab        2
-Thu 13 Oct   Tut        3     HOP unveil
-Fri 14 Oct   Lecture          functors (hints of parametricity)
+Mon 10 Oct   Lecture          declaring types and classes (H8)                                      F&J
+             Lab        2                                                                           F&J
+Thu 13 Oct   Tut        3     HOP unveil                                                            F&J
+Fri 14 Oct   Lecture          functors (hints of parametricity)                                     F&J
 Mon 17 Oct   Lecture          recursion schemes
              Deadline   2     2pm
              Lab-Test   2
