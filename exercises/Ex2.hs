@@ -50,8 +50,8 @@ are at most 1st order.
 
 
 {- 2.1 Identify yourself. Write your name instead of Harry's between the
-   quotation marks. Your file will probably get separated from the email,
-   so I'll need this info to give you your mark. -}
+   quotation marks. Your file might get separated from your repository,
+   so we'll need this info to give you your mark. -}
 
 myName :: String
 myName = "Harry Palmer"
