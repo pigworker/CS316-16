@@ -15,9 +15,9 @@ Mon 10 Oct   Lecture          declaring types and classes (H8)           B&C    
              Lab        2                                                Ben                        F&J
 Thu 13 Oct   Tut        3     HOP unveil                                 C                          F&J
 Fri 14 Oct   Lecture          functors (hints of parametricity)          B&C                        F&J
-Mon 17 Oct   Lecture          recursion schemes                          J&C
-             Deadline   2     2pm                                        
-             Lab-Test   2                                                C&F
+Mon 17 Oct   Lecture          recursion schemes                          ?&C                        J
+             Deadline   2     2pm                                                                   
+             Lab-Test   2                                                C&F                        J
 Thu 20 Oct   Tut        2     FOP autopsy                                F
 Fri 21 Oct   Lecture          building pure evaluators                   J&?
 Mon 24 Oct   Lecture          applicatives and monads (H12)
