@@ -1,4 +1,4 @@
-module Ex2 where
+module Ex3 where
 
 {----------------------------------------------------------------------}
 {- CS316 (2016/17) EXERCISE 3                                         -}
@@ -194,13 +194,22 @@ recTree = undefined
 
 {- 2 marks -}
 
-{- 3.14 sumTree (from iterTree) -}
+{- 3.14 Define sumTree using iterTree. 'sumTree' adds up all the
+   integers stored within a tree. For example:
+
+     sumTree (Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf))
+  ==
+     6
+
+    As before, your 'sumTree' should be defined using 'iterTree'. If
+    you write 'sumTree' on the right hand side of the equals, you are
+    doing it wrong! -}
 sumTree :: Tree Int -> Int
 sumTree = undefined
 
 {- 1 mark -}
 
-{- 3.15 flatten from iterTree -}
+{- 3.15 Define 'flatten' (as in Lecture 5) using 'iterTree'. -}
 flatten :: Tree a -> [a]
 flatten = undefined
 
@@ -215,13 +224,23 @@ flatten = undefined
 {----------------------------------------------------------------------}
 
 {- 3.17 Write 'insertFromRecTree' (assuming that the tree is ordered),
-   using 'recTree'. -}
+   using 'recTree'. This function should do the same job as the
+   'insertBST' function defined in Lecture 5. -}
 insertFromRecTree :: Ord a => a -> Tree a -> Tree a
 insertFromRecTree = undefined
 
 {- 2 marks -}
 
-{- 3.18 Define recTree from iterTree -}
+{- 3.18 We will now see that even though 'recTree' appears to be more
+   powerful than 'iterTree', we can in fact define 'recTree' from
+   'iterTree'. The trick is to pass extra information through the
+   iteration and discard it at the end. We have given the start of the
+   definition below. You have to:
+
+    a) Alter the definition of Extra a b to correctly describe the
+    extra information needed; and
+
+    b) Implement 'leaf' and 'node' below. -}
 
 type Extra a b = () -- REPLACE THIS
 
@@ -326,24 +345,42 @@ runIO Abort        = error "ABORT"
    hello
 
    where the first 'hello' is typed by the user, and the second is
-   printed by the computer. -}
+   printed by the computer. You can use runIO to test your processes
+   below, interactively. -}
 
 {- Let's make some basic processes that we can use to build larger
    processes. Your job is to write these from their specifications. -}
 
-{- 3.20 Define 'input'. FIXME: input spec -}
+{- 3.20 Define 'input'. 'input' is the process that inputs a single
+   value and then ends with that value. -}
 input :: CP x x
 input = undefined
 
 {- 1 mark -}
 
-{- 3.21 Define 'output'. FIXME: output spec -}
+{- 3.21 Define 'output'. 'output x' is the process that outputs the
+   value x, and then ends with the value (). -}
 output :: x -> CP x ()
 output x = undefined
 
 {- 1 mark -}
 
-{- 3.22 Sequential composition of processes. -}
+{- 3.22 Sequential composition of processes. In the previous exercise,
+   sequential composition of processes had type 'Process -> Process ->
+   Process'. Here, processes end with a value, which is passed on to
+   subsequent processes. Define the rest of this function to complete
+   the definition of sequential composition of processes.
+
+   Here are some examples of its use:
+
+   > runIO (Input (\x -> End x) `sequ` \x -> Output x (End ()))
+   hello
+   hello
+
+   > runIO (Input (\x -> Abort) `sequ` \x -> End ())
+   hello
+   *** Exception: ABORT
+-}
 
 sequ :: CP x a -> (a -> CP x b) -> CP x b
 sequ (End a)      f = f a
@@ -361,23 +398,26 @@ echoFromSequ = undefined
 
 {- 1 mark -}
 
-{- 3.24 Adds the inputs, but doesn't output them. -}
+{- 3.24 Define a process that inputs two numbers and ends with the sum
+ of those numbers. -}
 addInputs :: CP Int Int
 addInputs = undefined
 
 {- 2 marks -}
 
-{- Some useful operators defined using 'sequ' -}
-
-{- 3.25 Define cpApply. -}
+{- 3.25 Using the 'sequ', define cpApply, which takes a process that
+   returns a function, a process that returns a value and returns a
+   process that returns the result of applying the function to the
+   value. It ought to sequence the operations of the two processes so
+   that the process that returns the function goes first. -}
 
 cpApply :: CP x (a -> b) -> CP x a -> CP x b
 cpApply pf pa = undefined
 
 {- 2 marks -}
 
-{- 3.26 Now write addInputs again, but this time using 'input' and
- 'cpApply'. -}
+{- 3.26 Now write addInputs again, but this time using 'input',
+   'cpApply', and End. -}
 
 addInputs2 :: CP Int Int
 addInputs2 = undefined
@@ -393,7 +433,13 @@ addInputs2 = undefined
 {- 1 mark -}
 {----------------------------------------------------------------------}
 
-{- 3.29 Piping -}
+{- 3.29 Piping one process's output into another input. Just as for
+   'Process'es in Exercise 2, we can plug our processes together in
+   parallel, feeding the outputs of one into the inputs of the
+   other. Complete the definition of 'pipe', following the same
+   specification as in Exercise 2, but noting that (a) if process two
+   requires input that process one cannot give, then we abort; and (b)
+   we must also handle the Abort cases from both processes. -}
 
 pipe :: CP x a -> CP x b -> CP x b
 pipe p1            (End b)       = undefined
@@ -409,7 +455,23 @@ pipe _             Abort         = undefined
 {- 3.30 Knock-knock jokes!
 
    Exhaustive research has discovered that users love it when their
-   computers tell them jokes. -}
+   computers tell them jokes. It helps people think their machines are
+   more than just unfeeling lumps of metal and plastic.
+
+   To bring this vision into the present, you are asked to implement a
+   generic "Knock Knock" joke telling process. The protocol for "Knock
+   Knock" jokes is very rigid:
+
+   1. Your process must output "Knock, Knock!"
+   2. The response must be "Who's there?"
+   3. Your process must output the 'who' string it has been provided with
+   4. The response must be 'who ++ " who?"'
+   5. Your process must output 'who ++ " " ++ clarification'
+   6. The response must be "*LOL*"
+
+   If at any point your process detects that the "Knock Knock" joke
+   protocol has been violated, it must abort. You might find a nice
+   way to package up the idea of 'input with expectations'. -}
 
 knockKnocker :: String -> String -> CP String ()
 knockKnocker who clarification =
