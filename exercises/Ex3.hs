@@ -103,7 +103,7 @@ reverseFromIterLeft = undefined
 {- 2 marks -}
 
 {- 3.6 Now define a function that does the same job as 'iterLeft', but
-   defined in using 'iterRight'. Again, using explicit recursion is
+   defined by using 'iterRight'. Again, using explicit recursion is
    not the answer! -}
 iterLeftFromIterRight :: (b -> a -> b) -> b -> [a] -> b
 iterLeftFromIterRight = undefined
@@ -143,6 +143,8 @@ iterRightFromRecList = undefined
 
     \(a,b) -> a
 -}
+
+{- 3.9 Is intentionally left blank. -}
 
 {----------------------------------------------------------------------}
 {- 3.10 WILL APPEAR IN THE LAB TEST                                   -}
