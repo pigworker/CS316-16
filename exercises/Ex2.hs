@@ -143,11 +143,25 @@ leftSpine t = undefined     -- refine and complete
 {- 2 marks -}
 
 {----------------------------------------------------------------------}
-{- 2.5 WILL APPEAR IN THE LAB TEST                                    -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
-{- 3 marks                                                            -}
+{- 2.5 Right spines (TEST)                                            -}
+
+{- The "right spine" is defined similarly, except that we start at the root
+   and descend into each right subtree. Write a function to compute the right
+   spine of a tree. -}
+
+rightSpine :: Tree x -> [x]
+rightSpine t = undefined -- you should define this
+
+{- 2 marks -}
+
+{- QUESTION: Can you think of an equational law which relates leftSpine,
+   rightSpine and mirror, for any finite tree t?
+
+   ANSWER: write your answer here
+-}
+
+{- 1 marks -}
+
 {----------------------------------------------------------------------}
 
 {- 2.6 FindInTree. Your mission is to test if a given value is somewhere in a
@@ -165,13 +179,19 @@ eqFindInTree x t = undefined      -- refine and complete
 {- 4 marks -}
 
 {----------------------------------------------------------------------}
-{- 2.7 WILL APPEAR IN THE LAB TEST                                    -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
-{- 5 marks                                                            -}
-{----------------------------------------------------------------------}
+{- 2.7 finding things efficiently in trees, using an ordering (TEST)  -}
 
+{- Secondly, assuming you can test values for order and equality
+   (with <, >, ==), as given by the "Ord x =>" constraint in the type, an
+   that the input trees are binary search trees, write an *efficient* function
+   which tests if an element is in a tree.
+-}
+
+ordFindInTree :: Ord x => x -> Tree x -> Bool
+ordFindInTree x t = undefined -- write this function
+
+{- 5 marks -}
+{----------------------------------------------------------------------}
 
 {----------------------------------------------------------------------}
 {- MODELLING COMMUNICATING PROCESSES                                  -}
@@ -315,11 +335,37 @@ andGate' = undefined     -- you define it
 {- 2 marks -}
 
 {----------------------------------------------------------------------}
-{- 2.12 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
-{- 2 marks                                                            -}
+{- 2.12 Further gates (TEST)                                          -}
+
+{- Define a process which reads two inputs and implements a nand-gate;
+that is, it should return True exactly when both of its inputs are not
+True. Use wire, notGate, always, etc. if you can. -}
+
+nandGate :: Process
+nandGate = undefined -- you write this
+
+{- use ghci to check that
+     process nandGate [False,False] = [True]
+     process nandGate [False,True]  = [True]
+     process nandGate [True,False]  = [True]
+     process nandGate [True,True]   = [False]
+-}
+
+{- Define a process which reads two bits of input and returns True if
+they are the same, False otherwise. Again, make use of wire, notGate,
+always, etc. when possible. -}
+
+equalGate :: Process
+equalGate = undefined -- you write this
+
+{- use ghci to check that
+     process equalGate [True,True]   = [True]
+     process equalGate [False,False] = [True]
+     process equalGate [False,True]  = [False]
+     process equalGate [True,False]  = [False]
+-}
+
+{- 2 marks -}
 {----------------------------------------------------------------------}
 
 {- 2.13 Copy1. Write a process which reads *one* bit of input, then outputs
@@ -481,21 +527,63 @@ fadd = undefined     -- you define it
 
 {- 3 marks -}
 
-
 {----------------------------------------------------------------------}
-{- 2.20 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
-{- 5 marks                                                            -}
-{----------------------------------------------------------------------}
+{- 2.20 process with left-over input, and error handling (TEST)       -}
 
 
-{----------------------------------------------------------------------}
-{- 2.21 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
-{- 5 marks                                                            -}
+{- The current process function above suffers from two problems:
+
+   1. It can starve, that is expect more input when there is none (not
+      enough input), and
+   2. it can finish without consuming all its input (too much input)
+
+   Fix these problems by defining a new function
+
+    process' :: Process -> [Bool] -> Maybe ([Bool], [Bool])
+
+   which returns Nothing if it is starving, and Just (os, ls)
+   otherwise, where os is the list of output bits, and ls the list of
+   unconsumed inputs.
+
+   Examples:
+
+    process' (IfInput wire wire) []     = Nothing
+    process' End [True, False]          = Just ([], [True, False])
+    process' (IfInput wire wire) [True] = Just ([True], [])
+
+-}
+
+process' :: Process -> [Bool] -> Maybe ([Bool], [Bool])
+process' p bs = undefined -- you write this
+
+{- 5 marks -}
 {----------------------------------------------------------------------}
 
+{----------------------------------------------------------------------}
+{- 2.21 Expecting input (TEST)                                        -}
+
+{- Write a function
+
+     expected :: [Bool] -> Process
+
+   which, given a list of expected inputs of length n, reads n inputs
+   and outputs True if and only if the input matched the expected one.
+   The process should not output anything before it has read exactly n
+   inputs.
+
+   Hint: You might find it helpful to write an auxiliary function which
+   passes along a parameter to keep track of if the input so far matches
+   the expected one or not.
+
+   Check that e.g.
+
+   process (expected [True, False, True]) [True, False, True]  = [True]
+   process (expected [True, False, True]) [True, False, False] = [False]
+
+-}
+
+expected :: [Bool] -> Process
+expected is = undefined -- you write this
+
+{- 5 marks -}
+{----------------------------------------------------------------------}
