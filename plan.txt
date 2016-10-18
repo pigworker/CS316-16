@@ -22,7 +22,7 @@ Thu 20 Oct   Tut        2     FOP autopsy                                F      
 Fri 21 Oct   Lecture          building pure evaluators                   ?                          J
 Mon 24 Oct   Lecture          applicatives and monads (H12)
              Lab        3
-Thu 27 Oct   Tut        3     HOP firefight
+Thu 27 Oct   Tut        3     HOP firefight                                                         B
 Fri 28 Oct   Lecture          monads we like
 Mon 31 Oct   Lecture          monadic parsing (H13)
              Lab        3
