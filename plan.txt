@@ -27,7 +27,7 @@ Fri 28 Oct   Lecture          monads we like
 Mon 31 Oct   Lecture          monadic parsing (H13)
              Lab        3
 Thu  3 Nov   Tut        4     GHOUL unveil                               B                          C
-Fri  4 Nov   Lecture          monoids/foldable (H14)
+Fri  4 Nov   Lecture          monoids/foldable (H14)                                                F
 Mon  7 Nov   Lecture          traversable
              Deadline   3     2pm
              Lab-Test   3     HOP test
@@ -40,10 +40,10 @@ Fri 18 Nov   Lecture          the zipper
 Mon 21 Nov   Lecture          abstract machine (H17)
              Lab
 Thu 24 Nov   Tut        4     GHOUL firefight                            B
-Fri 25 Nov   Lecture          infinite data and processes (H15)         
-Mon 28 Nov   Lecture          programming interaction
+Fri 25 Nov   Lecture          infinite data and processes (H15)
+Mon 28 Nov   Lecture          programming interaction                                               F
              Deadline   4     2pm
-             Lab-Test   4     GHOUL test                                 B
+             Lab-Test   4     GHOUL test                                 B                          F
 Thu  1 Dec   Tut        4     GHOUL autopsy                              B
 Fri  2 Dec   Lecture          a look at Agda (CS410 propaganda)          C
 
