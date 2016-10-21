@@ -10,7 +10,7 @@ Fri 30 Sep   Lecture          list comprehensions (H5)                   C&J
 Mon  3 Oct   Lecture          recursive functions (H6)                   C&B                        F
              Lab        2                                                                           F
 Thu  6 Oct   Tut        2     FOP firefight                                                         C&F
-Fri  7 Oct   Lecture          higher-order functions (H7)                B&J                        F
+Fri  7 Oct   Lecture          higher-order functions (H7)                J                          F
 Mon 10 Oct   Lecture          declaring types and classes (H8)           B&C                        F&J
              Lab        2                                                Ben                        F&J
 Thu 13 Oct   Tut        3     HOP unveil                                 C                          F&J
