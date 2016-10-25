@@ -74,7 +74,7 @@ iterLeft f acc (x:xs) = iterLeft f (f acc x) xs
 
      product [1,2,3] = 6
 
-   Define this function using 'iterList'. Do not use explicit
+   Define this function using 'iterRight'. Do not use explicit
    recursion -- if you write 'productFromIterRight' on the right hand
    side of the equals sign here, you are doing it wrong. -}
 productFromIterRight :: [Int] -> Int
@@ -162,6 +162,7 @@ iterRightFromRecList = undefined
 data Tree a
   = Leaf
   | Node (Tree a) a (Tree a)
+  deriving Show
 
 {- 3.11 The 'mapTree' function applies a given function to every value
    stored within the tree, returning the new tree. For example
