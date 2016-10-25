@@ -20,11 +20,11 @@ Mon 17 Oct   Lecture          recursion schemes                          B&C    
              Lab-Test   2                                                C&F&B                      J
 Thu 20 Oct   Tut        2     FOP autopsy                                F                          J
 Fri 21 Oct   Lecture          building pure evaluators                   B&F                        J
-Mon 24 Oct   Lecture          applicatives and monads (H12)
+Mon 24 Oct   Lecture          applicatives and monads (H12)              C&F
              Lab        3
 Thu 27 Oct   Tut        3     HOP firefight                                                         B
 Fri 28 Oct   Lecture          monads we like
-Mon 31 Oct   Lecture          monadic parsing (H13)
+Mon 31 Oct   Lecture          monadic parsing (H13)                      C&?
              Lab        3
 Thu  3 Nov   Tut        4     GHOUL unveil                               B                          C
 Fri  4 Nov   Lecture          monoids/foldable (H14)                                                F
