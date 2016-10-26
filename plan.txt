@@ -22,8 +22,8 @@ Thu 20 Oct   Tut        2     FOP autopsy                                F      
 Fri 21 Oct   Lecture          building pure evaluators                   B&F                        J
 Mon 24 Oct   Lecture          applicatives and monads (H12)              C&F
              Lab        3
-Thu 27 Oct   Tut        3     HOP firefight                                                         B
-Fri 28 Oct   Lecture          monads we like
+Thu 27 Oct   Tut        3     HOP firefight                              J                          B
+Fri 28 Oct   Lecture          monads we like                             J
 Mon 31 Oct   Lecture          monadic parsing (H13)                      C&?
              Lab        3
 Thu  3 Nov   Tut        4     GHOUL unveil                               B                          C
@@ -45,5 +45,6 @@ Mon 28 Nov   Lecture          programming interaction                           
              Deadline   4     2pm
              Lab-Test   4     GHOUL test                                 B                          F
 Thu  1 Dec   Tut        4     GHOUL autopsy                              B
-Fri  2 Dec   Lecture          a look at Agda (CS410 propaganda)          C
+Fri  2 Dec   Lecture          a look at Agda (CS410 propaganda)          C                          B
+
 
