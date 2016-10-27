@@ -6,7 +6,7 @@ Thu 22 Sep   Lecture          standard types & classes (H3)              C&F
 Fri 23 Sep   Lecture          defining functions (H4)                    C&F
 Thu 29 Sep   Deadline   1     4pm
 Thu 29 Sep   Tut        2     FOP unveil                                 F
-Fri 30 Sep   Lecture          list comprehensions (H5)                   C&J
+Fri 30 Sep   Lecture          list comprehensions (H5)                   J
 Mon  3 Oct   Lecture          recursive functions (H6)                   C&B                        F
              Lab        2                                                                           F
 Thu  6 Oct   Tut        2     FOP firefight                              B                          C&F
