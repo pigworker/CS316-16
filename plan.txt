@@ -24,7 +24,7 @@ Mon 24 Oct   Lecture          applicatives and monads (H12)              C&F
              Lab        3
 Thu 27 Oct   Tut        3     HOP firefight                              J                          B
 Fri 28 Oct   Lecture          monads we like                             J
-Mon 31 Oct   Lecture          monadic parsing (H13)                      C&?
+Mon 31 Oct   Lecture          monadic parsing (H13)                      C&B
              Lab        3
 Thu  3 Nov   Tut        4     GHOUL unveil                               B                          C
 Fri  4 Nov   Lecture          monoids/foldable (H14)                                                F
