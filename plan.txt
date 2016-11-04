@@ -28,10 +28,10 @@ Mon 31 Oct   Lecture          monadic parsing (H13)                      C&B
              Lab        3
 Thu  3 Nov   Tut        4     GHOUL unveil                               B                          C
 Fri  4 Nov   Lecture          more monadic parsing                       B                          F
-Mon  7 Nov   Lecture          traversable
+Mon  7 Nov   Lecture          state and traversable                      F&B
              Deadline   3     2pm
-             Lab-Test   3     HOP test
-Thu 10 Nov   Tut        3     HOP autopsy
+             Lab-Test   3     HOP test                                   J&F&B
+Thu 10 Nov   Tut        3     HOP autopsy                                J
 Fri 11 Nov   Lecture          zippability
 Mon 14 Nov   Lecture          free monads
              Lab        4
