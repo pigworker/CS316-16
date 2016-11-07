@@ -1,5 +1,7 @@
 module Ex3 where
 
+import Text.Read
+
 {----------------------------------------------------------------------}
 {- CS316 (2016/17) EXERCISE 3                                         -}
 {----------------------------------------------------------------------}
@@ -83,10 +85,15 @@ productFromIterRight = undefined
 {- 1 mark -}
 
 {----------------------------------------------------------------------}
-{- 3.4 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.4 mapfromIterRight (TEST)                                        -}
+
+{- Define the 'map' function for lists using 'iterRight'. Do not use
+   explicit recursion -- if you write 'productFromIterRight' on the
+   right hand side of the equals sign here, you are doing it wrong. -}
+
+mapFromIterRight :: (a -> b) -> [a] -> [b]
+mapFromIterRight = undefined
+
 {- 2 marks                                                            -}
 {----------------------------------------------------------------------}
 
@@ -147,10 +154,13 @@ iterRightFromRecList = undefined
 {- 3.9 Is intentionally left blank. -}
 
 {----------------------------------------------------------------------}
-{- 3.10 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.10 recListFromIterRight (TEST)                                   -}
+
+{- Define 'recList' in terms of 'iterRight'. -}
+
+recListFromIterRight :: (a -> ([a], b) -> b) -> b -> [a] -> b
+recListFromIterRight = undefined
+
 {- 3 marks -}
 {----------------------------------------------------------------------}
 
@@ -219,10 +229,27 @@ flatten = undefined
 {- 1 mark -}
 
 {----------------------------------------------------------------------}
-{- 3.16 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.16 Left Spines (TEST)                                            -}
+
+{- The "left spine" of a binary tree is the list of node labels starting
+   at the root, and descending into each left subtree until the
+   leftmost leaf is reached. Write a function to compute the left
+   spine of a tree.
+
+   This function must be written using 'iterTree', and not using
+   explicit recursion. -}
+
+leftSpine :: Tree a -> [a]
+leftSpine = undefined
+
+{- For example, you should have
+
+   leftSpine (Node (Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf))
+                   4
+                   (Node (Node Leaf 5 Leaf) 6 (Node Leaf 7 Leaf)))
+   = [4,2,1]
+-}
+
 {- 1 mark -}
 {----------------------------------------------------------------------}
 
@@ -259,10 +286,24 @@ recTreeFromIterTree n l t = snd (iterTree leaf node t)
 {- 3 marks -}
 
 {----------------------------------------------------------------------}
-{- 3.19 WILL APPEAR IN THE LAB TEST                                   -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.19 Trees full of functions (TEST)                                -}
+
+{- Define 'applyTree', a function that takes a binary tree of binary
+   functions, and a value to use for the leaves, and returns the value
+   computed by recursively applying the function at each node to the
+   values computed for its two sub-trees.
+
+   For example:
+
+     applyTree (Node (Node Leaf (+) Leaf) (*) (Node Leaf (+) Leaf)) 1 = 4
+
+   because: (1 + 1) * (1 + 1) = 2 * 2 = 4.
+
+   Define your 'applyTree' using 'iterTree'. -}
+
+applyTree :: Tree (Int -> Int -> Int) -> Int -> Int
+applyTree = undefined
+
 {- 2 marks -}
 {----------------------------------------------------------------------}
 
@@ -428,11 +469,34 @@ addInputs2 = undefined
 {- 1 mark -}
 
 {----------------------------------------------------------------------}
-{- 3.27 and 3.28 WILL APPEAR IN THE LAB TEST                          -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.27 Translation of processes (TEST) -}
+
+{- Sometimes, we might have a process that sends and receives values of
+   type 'x', but we want a process that sends and receives values of
+   type 'y'. Define a function 'translate' that takes two translation
+   functions, one from 'x's to 'y's and one from 'y's to 'Maybe x's,
+   and converts processes that communicate using 'x's into processes
+   that communicate using 'y's. If the translation fails (because the
+   second function returns 'Nothing'), then the process should Abort. -}
+
+translate :: (x -> y) -> (y -> Maybe x) -> CP x a -> CP y a
+translate = undefined
+
 {- 3 marks -}
+
+{- 3.28 Below we have defined functions stringToMaybeInt and intToString
+   that translate back and forth between strings and integers. Use
+   these functions and translate to define 'intsToStrings'. -}
+
+stringToInt :: String -> Maybe Int
+stringToInt = readMaybe
+
+intToString :: Int -> String
+intToString = show
+
+intsToStrings :: CP Int a -> CP String a
+intsToStrings = undefined
+
 {- 1 mark -}
 {----------------------------------------------------------------------}
 
@@ -483,12 +547,64 @@ knockKnocker who clarification =
 {- 2 marks -}
 
 {----------------------------------------------------------------------}
-{- 3.31, 3.32, 3.33 and 3.34 WILL APPEAR IN THE LAB TEST              -}
-{-                                                                    -}
-{- please leave this comment alone until further notice:              -}
-{- we'll release an update to it on GitHub at the start of the test   -}
+{- 3.31 Expected Inputs (TEST)                                        -}
+
+{- Define a function 'expectInput' that is given an expected input and
+   returns a process that takes an input. If the input is as expected,
+   then it returns '()' and otherwise it aborts. You may have already
+   done this if you followed the hint above. -}
+
+expectInput :: Eq a => a -> CP a ()
+expectInput = undefined
+
 {- 2 marks -}
-{- 1 mark -}
+
+{- 3.32 Write the other side of the "Knock Knock" protocol. The protocol
+   to be followed must match the 'knockKnocker's protocol:
+
+   1. You expect to receive 'Knock, Knock!"
+   2. Your process must output "Who's there?"
+   3. You must take any input 'who'
+   4. Your process must respond with 'who ++ " who?"
+   5. You must take any input as the punchline
+   6. Your process must respond with "*LOL*". -}
+
+knockKnockee :: CP String ()
+knockKnockee =
+  undefined
+  
 {- 3 marks -}
-{- 2 marks -}
+
+{- 3.33 Chatting (TEST)
+
+   Write a function that records the chat between two processes,
+   labelling each message that is sent. If either process Ends or
+   Aborts, or one side is not listening when the other is sending,
+   then the chat log finishes (but the messages successfully sent up
+   to that point are returned).
+
+   For example:
+
+       chat ("A", Output "X" (Input (\_ -> End ())))
+            ("B", Input (\_ -> Output "Y" (End ())))
+     =
+       [("A", "X"), ("B", "Y")]
+
+   and
+
+   chat ("A",knockKnocker "Euripedes" "trousers, you pay for these trousers!")
+        ("B",knockKnockee)
+     =
+       [("A","Knock, Knock!"),
+        ("B","Who's there?"),
+        ("A","Euripedes"),
+        ("B","Euripedes who?"),
+        ("A","Euripedes trousers, you pay for these trousers!"),
+        ("B","*LOL*")]  
+-}
+
+chat :: (l, CP x ()) -> (l, CP x ()) -> [(l, x)]
+chat = undefined
+
+{- 3 marks -}
 {----------------------------------------------------------------------}
