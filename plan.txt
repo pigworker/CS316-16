@@ -31,17 +31,17 @@ Fri  4 Nov   Lecture          more monadic parsing                       B      
 Mon  7 Nov   Lecture          state and traversable                      F&B
              Deadline   3     2pm
              Lab-Test   3     HOP test                                   J&F&B
-Thu 10 Nov   Tut        3     HOP autopsy                                J
-Fri 11 Nov   Lecture          zippability
-Mon 14 Nov   Lecture          free monads
+Thu 10 Nov   Tut        3     HOP autopsy                                F
+Fri 11 Nov   Lecture          visiting containers and more monads	 F&B
+Mon 14 Nov   Lecture          programming interaction
              Lab        4
 Thu 17 Nov   Tut        4     GHOUL firefight                            B
-Fri 18 Nov   Lecture          the zipper
-Mon 21 Nov   Lecture          abstract machine (H17)
+Fri 18 Nov   Lecture          infinite data and processes (H15)          B&?
+Mon 21 Nov   Lecture          QuickCheck    		  		 F&?
              Lab
 Thu 24 Nov   Tut        4     GHOUL firefight                            B
-Fri 25 Nov   Lecture          infinite data and processes (H15)
-Mon 28 Nov   Lecture          programming interaction                                               F
+Fri 25 Nov   Lecture          parallelism                                B&?
+Mon 28 Nov   Lecture          concurrency                                                           F
              Deadline   4     2pm
              Lab-Test   4     GHOUL test                                 B                          F
 Thu  1 Dec   Tut        4     GHOUL autopsy                              B
