@@ -33,15 +33,15 @@ Mon  7 Nov   Lecture          state and traversable                      F&B
              Lab-Test   3     HOP test                                   J&F&B
 Thu 10 Nov   Tut        3     HOP autopsy                                F
 Fri 11 Nov   Lecture          visiting containers and more monads	 F&B
-Mon 14 Nov   Lecture          programming interaction
+Mon 14 Nov   Lecture          programming interaction 	   		 F
              Lab        4
-Thu 17 Nov   Tut        4     GHOUL firefight                            B
-Fri 18 Nov   Lecture          infinite data and processes (H15)          B&?
-Mon 21 Nov   Lecture          QuickCheck    		  		 F&?
+Thu 17 Nov   Tut        4     GHOUL firefight                            J
+Fri 18 Nov   Lecture          infinite data and processes (H15)          B
+Mon 21 Nov   Lecture          QuickCheck    		  		 J
              Lab
-Thu 24 Nov   Tut        4     GHOUL firefight                            B
+Thu 24 Nov   Tut        4     GHOUL firefight                            J
 Fri 25 Nov   Lecture          parallelism                                B&?
-Mon 28 Nov   Lecture          concurrency                                                           F
+Mon 28 Nov   Lecture          concurrency                                ?                          F
              Deadline   4     2pm
              Lab-Test   4     GHOUL test                                 B                          F
 Thu  1 Dec   Tut        4     GHOUL autopsy                              B
