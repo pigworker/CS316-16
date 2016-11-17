@@ -283,12 +283,12 @@ varname = undefined
 
 {- Here are some tests that your 'varname' parser should pass:
 
-     runParser varname "plus"  == ["plus"]
-     runParser varname "x"     == ["x"]
-     runParser varname "Plus"  == []
-     runParser varname ""      == []
-     runParser varname "plu s" == []
-     runParser varname "123"   == [] -}
+     runParser varname "plus"  == Just "plus"
+     runParser varname "x"     == Just "x"
+     runParser varname "Plus"  == Nothing
+     runParser varname ""      == Nothing
+     runParser varname "plu s" == Nothing
+     runParser varname "123"   == Nothing -}
 
 {- 1 MARK -}
 
@@ -304,14 +304,14 @@ constructorname = undefined
 
 {- Here are some tests that your 'constructorname' parser should pass:
 
-     runParser constructorname "plus"  == []
-     runParser constructorname "x"     == []
-     runParser constructorname ""      == []
-     runParser constructorname "Plus"  == ["Plus"]
-     runParser constructorname "S"     == ["S"]
-     runParser constructorname ""      == []
-     runParser constructorname "plu s" == []
-     runParser constructorname "123"   == [] -}
+     runParser constructorname "plus"  == Nothing
+     runParser constructorname "x"     == Nothing
+     runParser constructorname ""      == Nothing
+     runParser constructorname "Plus"  == Just "Plus"
+     runParser constructorname "S"     == Just "S"
+     runParser constructorname ""      == Nothing
+     runParser constructorname "plu s" == Nothing
+     runParser constructorname "123"   == Nothing -}
 
 {- 1 MARK -}
 
