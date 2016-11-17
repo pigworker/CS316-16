@@ -788,7 +788,24 @@ evalProgram prg = runEval (eval (EA "main" [])) prg []
        - Alter the 'EA' case of eval to (a) try looking up the
          function name in the environment before in the programs; and
          (b) if it is found in the environment then it uses
-         'applyVal'. -}
+         'applyVal'.
+
+   If you have implemented scopeCheck above, then you will also need
+   to extend the check that all functions that are used have been
+   defined to allow functions that are named in patterns.
+
+   Here is an example program that ought to work after your
+   changes. Note that in the definition of plusTwo, plus is only
+   applied to one argument, not the two it is expecting. -}
+
+partialProg :: String
+partialProg =
+  " plus(Z,y) = y;\
+  \ plus(S(x),y) = S(plus(x,y));\
+  \ plusTwo() = plus(S(S(Z)));\
+  \ apply(f,a) = f(a);\
+  \ main() = apply(plusTwo(), S(S(Z)));"
+
 {- 10 MARKS -}
 
 
