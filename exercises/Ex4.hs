@@ -804,7 +804,7 @@ partialProg =
   \ plus(S(x),y) = S(plus(x,y));\
   \ plusTwo() = plus(S(S(Z)));\
   \ apply(f,a) = f(a);\
-  \ main() = apply(plusTwo(), S(S(Z)));"
+  \ main() = apply(plusTwo(),S(S(Z)));"
 
 {- 10 MARKS -}
 
