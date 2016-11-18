@@ -11,7 +11,11 @@ import Debug.Trace
    'lazy evaluation', which means that values are never computed
    unless they are needed, and the 'same' value is never computed more
    than once.
--}
+
+   CREDITS: The 'inc', 'neverFinish', 'square' and 'sumList' examples
+   are taken from Hutton's "Programming in Haskell", 2nd ed, Chapter
+   15. The 'findSqrt' example is taken from the paper "Why Functional
+   Programming Matters" by John Hughes (link below). -}
 
 {- A simple function: -}
 
