@@ -218,7 +218,12 @@ plusProgram =
   ]
 
 {----------------------------------------------------------------------}
-{- 4.2 WILL APPEAR IN THE LAB TEST                                    -}
+{- 4.2 TEST: Write a GHOUL program to concatenate lists.
+
+   Write a GHOUL program to concatenate (append) two lists. You can
+   use the example of the 'append' program written in Haskell given in
+   Lecture 3 as a guide. -}
+
 {- 3 MARKS -}
 {----------------------------------------------------------------------}
 
@@ -406,7 +411,17 @@ equations = undefined
 {- 2 MARKS -}
 
 {----------------------------------------------------------------------}
-{- 4.9 WILL APPEAR IN THE LAB TEST                                    -}
+{- 4.9 TEST: Syntactic sugar for numeric literals
+
+   Extend your parsers for patterns and expressions to parse numeric
+   literals. That is, instead of having to write 'S(S(S(Z)))', a GHOUL
+   programmer should be able to write '3'. This should work in both
+   patterns and in expressions.
+
+   We have given you the 'number' parser at the bottom of this file to
+   parse numbers. You should extend your 'pat' and 'expr' parsers to
+   use this parser and turn the integers it returns into 'Pat's or
+   'Exp's as appropriate. -}
 {- 5 MARKS -}
 {----------------------------------------------------------------------}
 
@@ -592,12 +607,36 @@ matchClauses = undefined
 {- 2 MARKS -}
 
 {----------------------------------------------------------------------}
-{- 4.15 WILL APPEAR IN THE LAB TEST                                   -}
+{- 4.15 TEST: Repeated variables in patterns
+
+   The basic version of GHOUL does not allow definitions like the
+   following, where we repeat a variable name in the patterns to
+   indicate that both arguments should be equal.
+
+      isEqual(x,x) = True;
+      isEqual(x,y) = False;
+
+   This restriction is enforced by the 'bindVar' function that fails
+   if a variable is matched more than once. Write a new version of
+   bindVar that allows repeated binding of a variable, as long as all
+   values matched are equal. -}
+
+bindVarAllowRepeats :: String -> Val -> Matcher ()
+bindVarAllowRepeats x v = undefined
+
 {- 2 MARKS -}
 {----------------------------------------------------------------------}
 
 {----------------------------------------------------------------------}
-{- 4.16 WILL APPEAR IN THE LAB TEST                                   -}
+{- 4.16 TEST: Catch-all patterns
+
+   GHOUL does not allow catch-all patterns that do not bind a variable
+   like Haskell's '_'. Adjust the Pat datatype, your pattern parser
+   'pat', and the 'matchPat' function to make the following kind of
+   definition work:
+
+       const1(_) = S(Z);
+-}
 {- 3 MARKS -}
 {----------------------------------------------------------------------}
 
@@ -810,7 +849,39 @@ partialProg =
 
 
 {----------------------------------------------------------------------}
-{- 4.19 WILL APPEAR IN THE LAB TEST                                   -}
+{- 4.19 TEST: Logging Effects
+
+   Alter the GHOUL language so that there is a logging facility that
+   records GHOUL values in a log as execution proceeds. You can use
+   the 'show' function for the 'Val' datatype to turn GHOUL values
+   into strings:
+
+      show :: Val -> String
+
+   You will need to:
+
+    - Add a special 'print' operation to the GHOUL syntax that allows
+      for printing to happen. You decide what the syntax should look
+      like, and how it ought to behave (assuming that it does actually
+      log values).
+
+    - Alter the 'eval' and 'evalProgram' functions so that they
+      return '([String], Maybe Val)', where the first part of the pair
+      is the logged messages, and the second is the returned value (or
+      Nothing for failure). You will need to alter the 'Eval' monad to
+      record logging information.
+
+    - You will need to change the definition of 'runGhoul' so that its
+      type is:
+
+         runGHOUL :: String -> Maybe ([String], Maybe Val)
+
+
+   You may find the LogAndFail example in Lecture 16 useful.
+
+   So that we know what you've done to add logging, please give a
+   short list of the changes you've made below. -}
+
 {- 10 MARKS -}
 {----------------------------------------------------------------------}
 
