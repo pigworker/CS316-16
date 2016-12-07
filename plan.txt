@@ -12,7 +12,7 @@ Mon  3 Oct   Lecture          recursive functions (H6)                   C&B    
 Thu  6 Oct   Tut        2     FOP firefight                              B                          C&F
 Fri  7 Oct   Lecture          higher-order functions (H7)                J                          F
 Mon 10 Oct   Lecture          declaring types and classes (H8)           B&C                        F&J
-             Lab        2                                                Ben                        F&J
+             Lab        2                                                                           F&J
 Thu 13 Oct   Tut        3     HOP unveil                                 B                          F&J
 Fri 14 Oct   Lecture          functors (hints of parametricity)          B&C                        F&J
 Mon 17 Oct   Lecture          recursion schemes                          B&C                        J
@@ -40,10 +40,10 @@ Fri 18 Nov   Lecture          infinite data and processes (H15)          B
 Mon 21 Nov   Lecture          QuickCheck    		  		 J
              Lab
 Thu 24 Nov   Tut        4     GHOUL firefight                            J
-Fri 25 Nov   Lecture          parallelism                                B&?
-Mon 28 Nov   Lecture          concurrency                                ?                          F
+Fri 25 Nov   Lecture          parallelism                                B
+Mon 28 Nov   Lecture          concurrency                                J                          F
              Deadline   4     2pm
-             Lab-Test   4     GHOUL test                                 B                          F
+             Lab-Test   4     GHOUL test                                 B&J                        F
 Thu  1 Dec   Tut        4     GHOUL autopsy                              B
 Fri  2 Dec   Lecture          a look at Agda (CS410 propaganda)          C                          B
 
